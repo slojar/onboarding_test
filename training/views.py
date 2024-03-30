@@ -31,14 +31,15 @@ class LeadersBoardAPIView(APIView):
         } for user in users]
         response = sorted(result, key=lambda x: x['score'], reverse=True)
 
-        return Response({"message": "Success", "deta": response})
+        return Response({"message": "Success", "data": response})
 
 
 class PerformActivityAPIView(APIView):
     permission_classes = []
 
     def post(self, request):
-        serializer = PerformActivitySerializerIn(data=request.data)
+        serializer = PerformActivitySer
+        ializerIn(data=request.data)
         serializer.is_valid() or raise_serializer_error_msg(errors=serializer.errors)
         response = serializer.save()
         return Response({"message": "Success", "data": response})
