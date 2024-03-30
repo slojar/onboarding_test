@@ -50,5 +50,3 @@ class ActivitiesListAPIView(ListAPIView):
     queryset = Activity.objects.all()
 
 
-
-
