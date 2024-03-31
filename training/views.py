@@ -38,8 +38,7 @@ class PerformActivityAPIView(APIView):
     permission_classes = []
 
     def post(self, request):
-        serializer = PerformActivitySer
-        ializerIn(data=request.data)
+        serializer = PerformActivitySerializerIn(data=request.data)
         serializer.is_valid() or raise_serializer_error_msg(errors=serializer.errors)
         response = serializer.save()
         return Response({"message": "Success", "data": response})
